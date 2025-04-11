@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: calculator-python
+  name: calculator-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calculator-python
+  template:
+    metadata:
+      labels:
+        app: calculator-python
+    spec:
+      containers:
+      - image: ghcr.io/vicziani/calculator-python:1.0.0
+        name: calculator-python

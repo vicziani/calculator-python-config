@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: calculator-python
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/vicziani/calculator-python-config
+    targetRevision: HEAD
+    path: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: calculator-python
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true # Rollback manual changes
+      prune: true # Delete namespace if file deleted
