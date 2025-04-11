@@ -15,5 +15,5 @@ spec:
         app: calculator-python
     spec:
       containers:
-      - image: ghcr.io/vicziani/calculator-python:1.0.0
-        name: calculator-python
+        - image: ghcr.io/vicziani/calculator-python:1.0.0
+          name: calculator-python
